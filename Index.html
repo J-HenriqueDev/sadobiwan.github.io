@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- blackground do site -->
+<style>
+body {
+  background-image: url('https://cdn.glitch.com/a8f456d2-cfef-44e3-b1cf-1c896a9aa39a%2Ffundo-preto-background.png?v=1583778905038');
+  background-color: #cccccc;
+      }
+  </style>
+ <head>
+<!-- css do site -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/mdb.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+<!-- js do site -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/popper.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.js') }}"></script>
+<!-- meta do site -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="A melhor loja brasileira do mercado">
+  <meta name="author" content="Neo_">
+  <meta name="theme-color" content="#252525"> 
+  <meta property="og:image" content="https://cdn.glitch.com/a8f456d2-cfef-44e3-b1cf-1c896a9aa39a%2Flogo.png?v=1583777529549">
+  <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/a8f456d2-cfef-44e3-b1cf-1c896a9aa39a%2Flogo.png?v=1583777529549"/>
+  <title>NeoStore | A melhor loja brasileira</title>
+
+ </head>
+<!-- navbar do site -->
+<nav class="mb-4 navbar navbar-expand-lg navbar-light" style="background-color: #232323;"">
+    <a class="navbar-brand" href="/">
+    <img src="https://cdn.glitch.com/a8f456d2-cfef-44e3-b1cf-1c896a9aa39a%2Flogo.png?v=1583777529549" height="35"><font color="white"><b> NeoStore</b></font></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><font color="white"><i class="fas fa-home"></i> Iniciar
+        </font></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><font color="white"><i class="fas fa-shopping-cart"></i> Produtos</font></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/invite"><font color="white"><i class="fab fa-discord"></i> Servidor</font></a>
+
+     </ul>        
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      {% if user %}
+      <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {% if user['avatar'] %}
+          <img src="https://cdn.discordapp.com/avatars/{{ user['id'] }}/{{ user['avatar'] }}.png" class="rounded-circle z-depth-0"
+            alt="avatar image"width="35" height="35" style="border: 2px solid white;">  <font color='white'>{{ user['username'] }} </font>
+          {% else %}
+          <img src="https://cdn.glitch.com/439c0c46-670c-4a34-9884-f6bff066f144%2F1cbd08c76f8af6dddce02c5138971129.png" class="rounded-circle z-depth-0"
+            alt="avatar image"width="35" height="35" style="border: 2px solid white;">  <font color='white'>{{ user['username'] }} </font>
+          {% endif %}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="/user/{{ user['id'] }}"> <i class="fas fa-user"></i> Perfil</a>
+          <a class="dropdown-item" href="/logout"> <i class="fas fa-times"></i> Sair</a>
+        </div> 
+      {% else %}
+      <li class="nav-item">
+        <a class="btn btn-white" href="/login" role="button"><font color="#252525"><i class="fas fa-sign-in-alt"></i><b> Login</b></a></font>
+      </li>      
+      {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<!-- produtos do site -->
+    {% if bot != 'error' %}
+    <div class="container">
+      <br>
+      <div>
+        <h2 onclick="self.location.href='/produtos'" style="cursor: pointer;"><i class="fas fa-dragon"></i> Os melhores Produtos</h2><p>Temos os melhores produtos do brasil com suporte 24/7.</p></h2>
+      </div>
+      <div class="row pt-5 m-auto">
+
+<!-- card do site -->           
+
+
+<div class="card" style="width: 18rem; background-color: #111111" >
+  <img src="data:image/png;base64,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" class="card-img-top">
+  <div class="card-body" style="text-align:center;" >
+    <p class="card-text">SPOTIFY PERMANENTE.</p>
+    <div class="card-body" style="text-align:center;" >
+      <a href="#" class="btn btn-primary">COMPRAR</a>
+
+
+
+
+      
+  </div>
+</div>
+  
+</div>
+  </center>
+      </div>
+
+      {% endif %}
+
+  </body>
+</html>
